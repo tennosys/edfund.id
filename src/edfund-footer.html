@@ -1,0 +1,167 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="edfund-footer">
+
+  <template>
+    <style>
+
+      #foot {
+        margin: 0;
+        margin-bottom: -40px;
+        padding: 0 0 20px;
+        background: #fff;
+        text-align: center;
+        font-size: .5em
+      }
+
+      #foot p {
+        margin: 0;
+        padding: 0;
+        color: var(--app-primary-color);
+        font-weight: 600!important;
+        line-height: 2.6em
+      }
+
+      #foot p a {
+        display: inline-block;
+        margin: 0 auto;
+        padding-top: 10px!important;
+        color: var(--app-primary-color)!important;
+        text-decoration: none;
+      }
+
+      #foot .threecol {
+        padding-right: 1%!important;
+        padding-left: 1%!important;
+        margin-left: 1%!important;
+        margin-right: 1%!important;
+        width: 28.93%!important;
+        padding-top: 40px!important;
+        padding-bottom: 50px!important;
+        min-height: 160px;
+        float: left;
+        clear: none;
+        display: inline-block
+      }
+
+      #foot .threecol.last {
+        border: 0!important
+      }
+
+      #foot #add h5,#foot #legal h5,#foot #links h5 {
+        margin: 0 0 15px!important;
+        width: 100%;
+        color: var(--app-primary-color);
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 600!important;
+        font-size: 2.2em!important;
+      }
+
+      #foot #add p,#foot #legal p {
+        text-decoration: none!important;
+        margin: 0!important;
+        width: 100%;
+        color: var(--app-primary-color)!important;
+        text-align: center;
+        letter-spacing: 0!important;
+        font-weight: 300!important;
+        font-size: 2em;
+        line-height: 2.7em!important
+      }
+      
+      #foot #links ul {
+        float: left;
+        clear: both;
+        display: block;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0
+      }
+
+      #foot #links ul li {
+        width: 70%;
+        margin: 0 15%!important;
+        padding: 0
+      }
+
+      #foot #links ul li a {
+        text-decoration: none!important;
+        margin: 0!important;
+        width: 100%;
+        color: var(--app-primary-color)!important;
+        text-align: left;
+        letter-spacing: 0!important;
+        font-weight: 300!important;
+        font-size: 2em;
+        line-height: 2.7em!important;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      @media (max-width:480px) {
+        #foot .threecol {
+          padding-right: 1%!important;
+          padding-left: 1%!important;
+          margin-left: 1%!important;
+          margin-right: 1%!important;
+          width: 90%!important;
+          padding-top: 40px!important;
+          padding-bottom: 50px!important;
+          min-height: 160px;
+          float: left;
+          clear: none;
+          display: inline-block
+        }
+      }
+    </style>
+    <section id="foot" class="section">
+      <div class="row">
+        <div class="threecol" id="links">
+          <h5>Link</h5>
+            <ul>
+              <li><a href="#" title="Contact"><paper-button>Hubungi</paper-button></a></li>
+              <li><a href="#" title="News"><paper-button>Berita</paper-button></a></li>
+              <li><a href="#" title="Press"><paper-button>Press</paper-button></a></li>
+              <li><a href="#" title="Confirmation"><paper-button>Konfirmasi</paper-button></a></li>
+            </ul>
+        </div>
+        <div class="threecol" id="add">
+          <h5>Alamat</h5>
+            <p>Jl. Rahasia No. 58<br> Sungai Bambu, Tanjung Priok,<br> Jakarta Utara, Jakarta,<br> Indonesia</p>
+            <p><a href="https://www.google.co.id/maps/place/Masjid+Astra/data=!4m2!3m1!1s0x2e69f56041c81a0b:0x83110439417c3e9b" target="_blank"><paper-button>Google Map</paper-button></a></p>
+        </div>
+        <div class="threecol last" id="legal">
+          <h5>Legal</h5>
+            <p>Copyright © 2016</p>
+            <p>All rights reserved.</p>
+            <p><a href="#" title="Terms and Conditions"><paper-button>Terms &amp; Conditions</paper-button></a></p>
+        </div>
+      </div>
+    </section>
+  </template>
+  <script>
+
+    Polymer({
+
+      is: 'edfund-footer',
+
+    });
+
+  </script>
+</dom-module>

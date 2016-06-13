@@ -1,0 +1,15 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/edfund-app.html",
+  "fragments": [
+    "src/edfund-student.html",
+    "src/edfund-profile.html",
+    "src/edfund-register.html",
+    "src/edfund-login.html",
+    "src/edfund-list.html",
+    "src/edfund-detail.html",
+    "src/edfund-cart.html",
+    "src/edfund-checkout.html",
+    "src/lazy-resources.html"
+  ]
+}

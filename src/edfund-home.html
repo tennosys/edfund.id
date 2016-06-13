@@ -1,0 +1,263 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="edfund-home">
+
+  <template>
+
+    <style>
+
+      h1,h2 {
+          font-weight: 100!important
+      }
+
+      section#home {
+          background: #eee;
+          color: #444
+      }
+
+      section#home .double-panel__body,section#home .double-panel__media {
+          text-align: center
+      }
+
+      section#home h2 {
+          font-weight: 100;
+          padding-top: 11.63vh;
+          margin-bottom: 9.3vh;
+          margin-top: 0;
+          font-size: 48px;
+          color: #444;
+          line-height: 1;
+          text-align: center;
+      }
+
+      section header,section>div {
+          padding: 0 5% 0 5%
+      }
+
+      #home.section {
+          height: 91vh!important
+      }
+
+      .double-panel {
+          display: block;
+          height: 100%;
+          float: left;
+          width: 90%;
+      }
+
+      .double-panel__media {
+          float: left;
+          width: 58%;
+          margin: 0 1%;
+          position: relative;
+          height: 100%;
+          flex: none!important
+      }
+
+      .double-panel__body {
+          float: left;
+          width: 39%;
+          margin: 0 .5%
+      }
+
+      .double-panel__image {
+          padding-left: 60px;
+          padding-right: 80px
+      }
+
+      img {
+          display: block;
+          max-width: 100%;
+          height: auto
+      }
+
+      section#home paper-button {
+          font-size: 16px!important;
+          line-height: 1.5;
+          text-transform: uppercase!important;
+          letter-spacing: 2px;
+          padding: 14px;
+          margin: 1%!important;
+          width: 175px
+      }
+
+      section#home paper-button.get-started {
+          background: var(--app-accent-color);
+          border: 1px solid var(--app-accent-color);
+          border-radius: 4px;
+          color: #fff!important;
+          display: inline-block;
+          box-shadow: 0 1px 2px 0 rgba(13,14,14,.24)
+      }
+
+      section#home paper-button.watch-video {
+          background: 0 0;
+          border: 1px solid var(--app-accent-color);
+          border-radius: 4px;
+          color: var(--app-accent-color)!important;
+          display: inline-block;
+          position: relative;
+          box-shadow: 0 1px 2px 0 rgba(13,14,14,.24)
+      }
+
+      section#home paper-button.watch-video iron-icon {
+          vertical-align: top;
+          margin-right: 5px;
+          padding-top: 1px
+      }
+
+      .double-panel__image--home {
+          position: absolute;
+          left: 0;
+          top: auto;
+          bottom: 10px
+      }
+
+      @media (max-width: 768px) {
+          section#home h2 {
+              font-size:32px;
+              width: 100%;
+              margin-bottom: 39px
+          }
+          .double-panel__body,.double-panel__image {
+            width:100%
+          }
+
+          .double-panel,.double-panel__body,.double-panel__media {
+              float: none
+          }
+
+          .double-panel__media {
+              width: 95%;
+              margin: 0 auto
+          }
+
+          .double-panel__image {
+              padding: 0
+          }
+
+          .double-panel {
+              height: auto
+          }
+
+          .double-panel__image--home {
+              position: static;
+              width: auto;
+              display: inline-block;
+              margin-top: 10px
+          }
+
+          .section#home paper-button.watch-video {
+              margin-bottom: 10px
+          }
+
+          #home.section {
+              height: auto!important
+          }
+      }
+
+      @media (min-width: 769px) and (max-width:1024px) {
+          section#home h2 {
+              font-size:32px;
+              padding-top: 6vh
+          }
+          .double-panel__image {
+              padding-left:5px;
+              padding-right: 32px
+          }
+      }
+
+
+      @media (min-width: 1025px) {
+          section#home h2 {
+              margin-left:-40px;
+              margin-right: -42px
+          }
+      }
+
+
+      @media (min-width: 769px) {
+          section#home paper-button {
+              width:238px!important
+          }
+      }
+
+
+      @media (min-width: 769px) {
+          section#home paper-button {
+              width:auto
+          }
+
+          section#home paper-button.get-started,section#home paper-button.watch-video {
+              display: block;
+              margin: 18px auto 0!important
+          }
+      }
+
+    </style>
+
+    <section id="home" class="section" style="height: 867px;"> 
+      <div class="double-panel"> 
+        <div class="double-panel__body"> 
+          <h2>Bantu murid agar bisa sekolah <br>Gak tau ngomong apa</h2> 
+          <paper-button class="get-started sign-up" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
+            Gabung Sekarang
+          </paper-button> 
+          <paper-button class="watch-video watch-video--all" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
+            <iron-icon icon="video"></iron-icon>
+            Lihat video
+          </paper-button> 
+        </div> 
+        <div class="double-panel__media"> 
+          <scanvas-image class="double-panel__image double-panel__image--home" img-url="https://lh3.googleusercontent.com/XatrlZ3QQzMZP6PmyHd-534MoH8cItgJH0IH0f1nc7v_U9ejHMjhnKy7H4DIYUyyEXhhPDr7898mMVwFvHYO56Q">
+          <template is="dom-if" class="style-scope scanvas-image"></template>
+            <img rel="prefetch" class="style-scope scanvas-image" src="https://lh3.googleusercontent.com/XatrlZ3QQzMZP6PmyHd-534MoH8cItgJH0IH0f1nc7v_U9ejHMjhnKy7H4DIYUyyEXhhPDr7898mMVwFvHYO56Q=s640-e365-rj">
+          <template is="dom-if" class="style-scope scanvas-image"></template>
+          </scanvas-image> 
+        </div>
+      </div> 
+    </section>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'edfund-home',
+
+      properties: {
+
+        categories: {
+          type: Array
+        },
+
+        visible: {
+          type: Boolean,
+          observer: '_visibleChanged'
+        }
+
+      },
+
+      _visibleChanged: function(visible) {
+        if (visible) {
+          this.fire('change-section', { title: 'Home' });
+        }
+      }
+
+    });
+
+  </script>
+
+</dom-module>

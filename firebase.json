@@ -1,0 +1,40 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "build/bundled",
+    "rewrites": [ {
+      "source": "!{/bower_components,/images,/data,/test,/src,**/*.@(json|js)}/**",
+      "destination": "/index.html"
+    } ]
+  },
+  "headers": [ {
+    "source" : "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+    "headers" : [ {
+      "key" : "Access-Control-Allow-Origin",
+      "value" : "*"
+  },{
+      "key" : "Cache-Control",
+      "value" : "max-age=7200"
+  } ]
+  }, {
+    "source" : "**/*.@(jpg|jpeg|gif|png)",
+    "headers" : [ {
+    "key" : "Cache-Control",
+    "value" : "max-age=7200"
+    } ]
+  }, {
+    "source" : "**/*.@(.js|.css|js|css)",
+    "headers" : [ {
+    "key" : "Cache-Control",
+    "value" : "max-age=3600"
+    } ]
+  }, {
+    "source" : "404.html",
+    "headers" : [ {
+    "key" : "Cache-Control",
+    "value" : "max-age=3600"
+    } ]
+  } ]
+}
