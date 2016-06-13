@@ -62,6 +62,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: var(--app-primary-color);
       }
 
+      app-drawer .logo {
+        margin-top: 16px;
+        margin-left: 76px;
+      }
+
       .logo {
         text-align: left;
         margin-left: 20px;
@@ -272,6 +277,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <template is="dom-if" if="[[_shouldRenderDrawer]]">
       <!-- Two-way bind `drawerOpened` since app-drawer can update `opened` itself. -->
       <app-drawer opened="{{drawerOpened}}" swipe-open tabindex="0">
+        <div class="logo" title><a href="/" aria-label="edfund Home">edfund</a></div>
         <iron-selector role="navigation" class="drawer-list" selected="[[page]]" attr-for-selected="name">
           <a name="home" href="/">Beranda</a>
           <a name="student" href="/student">Murid</a>
