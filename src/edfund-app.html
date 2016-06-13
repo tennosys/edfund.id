@@ -412,6 +412,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             this.$.header.resetLayout();
           }, 1);
         }
+        if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+          navigator.serviceWorker.controller.onstatechange = function(event) {
+            if (event.target.state === 'redundant') {
+              console.log('Updating Site');
+              window.location.reload();
+            }
+          };
+        }
       },
 
       _ensureLazyLoaded: function() {
@@ -421,7 +429,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             this.importHref(this.resolveUrl('lazy-resources.html'), function() {
               // Register service worker if supported.
               if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/service-worker.js');
+                navigator.serviceWorker
+                  .register('/service-worker.js')
+                  .then(function(registration) {
+                    registration.onupdatefound = function() {
+                      const installingWorker = registration.installing;
+                      installingWorker.onstatechange = function() {
+                        switch (installingWorker.state) {
+                          case 'installed':
+                            if (!navigator.serviceWorker.controller) {
+                              console.log('Caching complete! Future visits will work offline.');
+                            }
+                            break;
+                          case 'redundant':
+                            console.log('The installing service worker became redundant.');
+                        }
+                      };
+                    };
+                  })
+                  .catch(function(e) {
+                    console.error('Service worker registration failed:', e);
+                  });
               }
               this._notifyNetworkStatus();
               this.loadComplete = true;
