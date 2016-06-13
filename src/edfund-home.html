@@ -20,6 +20,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <style>
 
+      a{
+        text-decoration: none;
+      }
+      
       paper-button{
         font-weight: 300 !important;
       }
@@ -82,7 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           padding: 0 5% 0 5%
       }
 
-      #home.section {
+      section {
           height: 91vh!important
       }
 
@@ -154,6 +158,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           box-shadow: 0 1px 2px 0 rgba(13,14,14,.24);
           margin: 18px auto 0!important;
           display: block;
+          color: #fff!important;
       }
 
       section#home paper-button.watch-video iron-icon {
@@ -176,6 +181,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       section#student h2 {
           margin-top: 18px;
           margin-bottom: 42px
+      }
+
+      section#student .double-panel__media {  
+        margin-top: 20px;
       }
 
       @media (max-width: 768px) {
@@ -236,10 +245,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           section#student .double-panel {  
             padding-bottom: 20px;
           }
-
-          section#student .double-panel__media {  
-            margin-top: 20px;
-          }
       }
 
       @media (min-width: 769px) and (max-width:1024px) {
@@ -290,13 +295,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     </style>
 
-    <section id="home" class="section" style="height: 867px;"> 
+    <section id="home" class="section"> 
       <div class="double-panel"> 
         <div class="double-panel__body"> 
           <h2>Bantu murid agar bisa sekolah <br>Gak tau ngomong apa</h2> 
-          <paper-button class="get-started sign-up" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
+          <a href="/register"><paper-button class="get-started sign-up" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
             Gabung Sekarang
-          </paper-button> 
+          </paper-button></a>
           <paper-button class="watch-video watch-video--all" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
             <iron-icon icon="video"></iron-icon>
             Lihat video
@@ -311,14 +316,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
       </div> 
     </section>
-    <section id="student" class="section" style="height: 500px;"> 
+    <section id="student" class="section"> 
       <div class="double-panel"> 
         <div class="double-panel__body"> 
           <h2>Murid-murid EdFund</h2> 
           <p>Mereka adalah murid yang butuh bantuan dari anda, bersama kita junjung Indonesia yang lebih pintar</p>
-          <paper-button class="more-student" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
+          <a href="/student"><paper-button class="more-student" role="button" tabindex="0" animated="" aria-disabled="false" elevation="0">
             Selengkapnya
-          </paper-button>
+          </paper-button></a>
         </div> 
         <div class="double-panel__media"> 
           <paper-card image="/data/images/joko.jpg">
