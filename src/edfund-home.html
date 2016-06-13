@@ -11,6 +11,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 
 <dom-module id="edfund-home">
 
@@ -25,25 +27,55 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       h1,h2 {
           font-weight: 100!important
       }
+      h3{
+        font-weight: 300 !important; 
+      }
 
       section#home {
           background: #eee;
           color: #444
       }
 
+      section#student {
+          background: #1e87e5;
+          color: #fff
+      }
+      
+      section#student paper-card{
+        margin: 1%;
+        width: 28.93%;
+        float: left;
+        clear: none;
+        display: inline-block;
+        color: #444;
+      }
+
+      section#student h3{
+        margin-top: 0;
+      }
+
+      section#student .double-panel__media {
+          width: 71%;
+      }
+
       section#home .double-panel__body,section#home .double-panel__media {
           text-align: center
       }
 
-      section#home h2 {
+      section h2 {
           font-weight: 100;
           padding-top: 11.63vh;
           margin-bottom: 9.3vh;
           margin-top: 0;
           font-size: 48px;
-          color: #444;
           line-height: 1;
           text-align: center;
+      }
+
+      section p {
+          font-size: 16px;
+          line-height: 26px;
+          font-weight: 300;
       }
 
       section header,section>div {
@@ -129,6 +161,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           bottom: 10px
       }
 
+      #student .double-panel__body {
+          width: 26%
+      }
+
+      section#student h2 {
+          margin-top: 18px;
+          margin-bottom: 42px
+      }
+
       @media (max-width: 768px) {
           section#home h2 {
               font-size:32px;
@@ -136,7 +177,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               margin-bottom: 39px
           }
           .double-panel__body,.double-panel__image {
-            width:100%
+            width:100%!important
           }
 
           .double-panel,.double-panel__body,.double-panel__media {
@@ -169,6 +210,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           #home.section {
               height: auto!important
+          }
+
+          #student.section {
+              height: auto!important
+          }
+          #student.section:after {
+              content: "";
+          }
+
+          section#student paper-card{
+            width: 90.93%;
+            float: none;
+            margin: 2%;
+          }
+
+          section#student h2 {
+              margin-top: 0px;
+          }
+
+          section#student .double-panel {  
+            padding-bottom: 20px;
           }
       }
 
@@ -230,6 +292,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <img rel="prefetch" class="style-scope scanvas-image" src="https://lh3.googleusercontent.com/XatrlZ3QQzMZP6PmyHd-534MoH8cItgJH0IH0f1nc7v_U9ejHMjhnKy7H4DIYUyyEXhhPDr7898mMVwFvHYO56Q=s640-e365-rj">
           <template is="dom-if" class="style-scope scanvas-image"></template>
           </scanvas-image> 
+        </div>
+      </div> 
+    </section>
+    <section id="student" class="section" style="height: 600px;"> 
+      <div class="double-panel"> 
+        <div class="double-panel__body"> 
+          <h2>Murid-murid EdFund</h2> 
+          <p>Mereka adalah murid yang butuh bantuan dari anda, bersama kita junjung Indonesia yang lebih pintar</p>
+        </div> 
+        <div class="double-panel__media"> 
+          <paper-card image="/data/images/joko.jpg">
+            <div class="card-content">
+              <h3>Joko Widodo</h3>
+              <p><iron-icon icon="location"></iron-icon>Serang</p>
+              <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
+            </div>
+            <div class="card-actions">
+              <paper-button>Bantu</paper-button>
+              <paper-button>Bagikan</paper-button>
+            </div>
+          </paper-card>
+          <paper-card image="/data/images/joko.jpg">
+            <div class="card-content">
+              <h3>Joko Widodo</h3>
+              <p><iron-icon icon="location"></iron-icon>Serang</p>
+              <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
+            </div>
+            <div class="card-actions">
+              <paper-button>Bantu</paper-button>
+              <paper-button>Bagikan</paper-button>
+            </div>
+          </paper-card>
+          <paper-card image="/data/images/joko.jpg">
+            <div class="card-content">
+              <h3>Joko Widodo</h3>
+              <p><iron-icon icon="location"></iron-icon>Serang</p>
+              <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
+            </div>
+            <div class="card-actions">
+              <paper-button>Bantu</paper-button>
+              <paper-button>Bagikan</paper-button>
+            </div>
+          </paper-card>
         </div>
       </div> 
     </section>
