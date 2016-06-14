@@ -10,7 +10,7 @@
 
     <style include="edfund-section-styles">
 
-      section#section-body{
+      section#body{
         padding: 0 1%;
         padding-top: 90px!important;
         position: relative;
@@ -20,7 +20,7 @@
         display: none;
       }
 
-      section#section-body paper-card{
+      section#body paper-card{
         margin: 1%;
         width: 22.7%;
         clear: none;
@@ -119,20 +119,20 @@
 
 
       @media (max-width: 813px) {
-        section#section-body paper-card{
+        section#body paper-card{
           width: 30%;
         }
-        section#section-body{
+        section#body{
           padding: 0 3%;
         }
       }
 
       @media (max-width: 525px){
-        section#section-body paper-card{
+        section#body paper-card{
           width: 94%;
           margin: 3%;
         }
-        section#section-body{
+        section#body{
           padding: 0 5%;
         }
         #filter-mobile{
@@ -140,11 +140,11 @@
         }
       }
     </style>
-    <section id="section-head" class="section"> 
+    <section id="head" class="section"> 
       <h2>Murid-Murid Edfund</h2>
       <p>ini kata kata yang harus diisi untuk meyakinpun</p>
     </section>
-    <section id="section-body" class="section"> 
+    <section id="body" class="section"> 
       <div id="filter-container" class$="{{classFilter}}">
         <div id="filter-area">
           <div id="filter-mobile">
@@ -288,7 +288,7 @@
       },
 
       _scrollHandler: function() {
-        if(this._scrollTop >= 193){
+        if(this._scrollTop >= this.$.head.offsetHeight){
           this.classFilter = "filter-fixed";
         }
         else{
