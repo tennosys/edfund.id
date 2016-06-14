@@ -49,8 +49,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       app-header {
         @apply(--layout-fixed-top);
-        z-index: 1;
-        background-color: rgba(255, 255, 255, 0.95);
+        z-index: 2;
+        background-color: #fff;
         --app-header-shadow: {
           box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2);
           height: 10px;
@@ -225,7 +225,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         num-items="{{numItems}}"
         total="{{total}}"></edfund-cart-data>
 
-    <app-header role="navigation" id="header" effects="waterfall" condenses reveals>
+    <app-header role="navigation" id="header" effects="waterfall" condenses fixed>
       <app-toolbar>
         <div class="left-bar-item">
           <paper-icon-button

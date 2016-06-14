@@ -3,70 +3,40 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="edfund-section-styles.html">
 
 <dom-module id="edfund-register">
   <template>
 
-    <style>
-      section#register-head {
-          height: auto;
-          background: #1e87e5;
-          color: #fff;
-          text-align: center;
-      }
-      section h2 {
-          font-weight: 100;
-          padding-top: 6.63vh;
-          margin-top: 0;
-          font-size: 48px;
-          line-height: 1;
-          text-align: center;
-      }
-      section p {
-          font-size: 16px;
-          line-height: 26px;
-          font-weight: 300;
-          padding-bottom: 2vh;
-      }
-      section#register-grid{ 
+    <style include="edfund-section-styles">
+      section#section-body{ 
         width: 30vw;
         margin: 0 auto;
       }
       @media (max-width: 768px) {
-        section#register-grid{ 
+        section#section-body{ 
           width: 60vw;
           margin: 0 auto;
         }
       }
       @media (max-width: 478px) {
-        section#register-grid{ 
+        section#section-body{ 
           width: 80vw;
           margin: 0 auto;
         }
       }
-      section#register-grid paper-button {
-          background: 0 0;
-          border: 1px solid var(--app-accent-color);
-          border-radius: 4px;
-          color: var(--app-accent-color)!important;
-          display: inline-block;
-          position: relative;
-          box-shadow: 0 1px 2px 0 rgba(13,14,14,.24);
-          margin-top: 20px;
-          width: 100%;
-          text-align: center;
-      }
     </style>
-    <section id="register-head" class="section"> 
+
+    <section id="section-head" class="section"> 
       <h2>Segera Daftarkan dirimu</h2>
       <p>ini kata kata yang harus diisi untuk meyakinpun</p>
     </section>
-    <section id="register-grid" class="section"> 
+    <section id="section-body" class="section"> 
       <paper-input label="User Name"></paper-input>
       <paper-input label="Email"></paper-input>
       <paper-input label="Password" type="password"></paper-input>
       <paper-input label="Retype Password" type="password"></paper-input>
-      <paper-button>Register</paper-button>
+      <paper-button>Daftar</paper-button>
     </section>
   </template>
 

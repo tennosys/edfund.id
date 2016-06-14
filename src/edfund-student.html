@@ -2,61 +2,177 @@
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/iron-scroll-target-behavior/iron-scroll-target-behavior.html">
+<link rel="import" href="edfund-section-styles.html">
 
 <dom-module id="edfund-student">
   <template>
 
-    <style>
-      section#student-head {
-          height: auto;
-          background: #1e87e5;
-          color: #fff;
-          text-align: center;
+    <style include="edfund-section-styles">
+
+      section#section-body{
+        padding: 0 1%;
+        padding-top: 90px!important;
+        position: relative;
       }
-      section h2 {
-          font-weight: 100;
-          padding-top: 6.63vh;
-          margin-top: 0;
-          font-size: 48px;
-          line-height: 1;
-          text-align: center;
+
+      #filter-mobile{
+        display: none;
       }
-      section p {
-          font-size: 16px;
-          line-height: 26px;
-          font-weight: 300;
-          padding-bottom: 2vh;
-      }
-      section#student-grid paper-card{
+
+      section#section-body paper-card{
         margin: 1%;
-        width: 23%;
-        float: left;
+        width: 22.7%;
         clear: none;
         display: inline-block;
         color: #444;
       }
+
+      #filter-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 1;
+          background-color: #dedede;
+      }
+
+      #filter-area{
+        padding: 13px 24px;
+        margin: 0;
+        background: #F6F6F6;
+        border-bottom: 1px solid #E9E9E9;
+        border-top: 1px solid #E9E9E9;
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: left;
+        width: 100%;
+        height: 68px;
+        transition: .3s;
+        box-sizing: border-box;
+      }
+
+      .filter-fixed{
+        position: fixed!important;
+        top: 64px!important;
+      }
+
+      .filter-absolute{
+        position: absolute!important;
+      }
+
+      .section-filter {
+          width: 50%;
+          display: inline-block;
+          position: absolute;
+          height: 13px;
+      }
+
+      .section-filter .image-filter {
+          vertical-align: middle;
+          padding: 0 6px;
+          height: 15px;
+      }
+
+      .filter-filter {
+          text-align: center;
+          display: block;
+          line-height: 48px
+      }
+
+      .filter-filter .filter-label {
+          vertical-align: middle
+      }
+
+      .filter-filter .image-filter {
+          padding-right: 10px
+      }
+
+      .sort-option {
+          border: none;
+          background-color: transparent;
+          height: 48px;
+          width: 100%;
+          outline: none;
+          opacity: 0;
+          position: absolute
+      }
+
+      .sort-filter {
+          width: 100%;
+          height: 48px;
+          line-height: 48px;
+          text-align: center;
+          position: absolute
+      }
+
+      .sort-filter:before {
+          content: ".";
+          position: absolute;
+          left: 0;
+          border-left: 1px solid #eaeaea;
+          height: 50%;
+          color: #fff;
+          top: 10px
+      }
+
+
+      @media (max-width: 813px) {
+        section#section-body paper-card{
+          width: 30%;
+        }
+        section#section-body{
+          padding: 0 3%;
+        }
+      }
+
       @media (max-width: 525px){
-        section#student-grid paper-card{
-          width: 96%;
-          float: none;
-          margin: 2%;
+        section#section-body paper-card{
+          width: 94%;
+          margin: 3%;
+        }
+        section#section-body{
+          padding: 0 5%;
+        }
+        #filter-mobile{
+          display: block;
         }
       }
     </style>
-    <section id="student-head" class="section"> 
+    <section id="section-head" class="section"> 
       <h2>Murid-Murid Edfund</h2>
       <p>ini kata kata yang harus diisi untuk meyakinpun</p>
     </section>
-    <section id="student-grid" class="section"> 
+    <section id="section-body" class="section"> 
+      <div id="filter-container" class$="{{classFilter}}">
+        <div id="filter-area">
+          <div id="filter-mobile">
+            <div class="section-filter">
+              <a class="filter-filter" on-click="_openFilter">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxMyAxNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtNC44OTUgOC4yNjl2Ni41M2MwIC40MDIuMzI4LjczLjczLjczIDAgMCAuMjQtLjA0OC40MDItLjIxLjE2Mi0uMTYyIDEuOTY1LTIuMjU4IDEuOTY1LTIuMjU4LjQxOS0uNDIuNTM1LS42MjYuNTM1LTEuMDI3di0zLjc2NWMwLS4yNCAzLjY0NS0zLjcxIDMuNjQ1LTQuMDR2LTIuNDkxYzAtLjQwNy0uMzMzLS43NC0uNzQtLjc0aC05LjY5M2MtLjQwNyAwLS43NC4zMzMtLjc0Ljc0djIuNDkxYzAgLjMzNiAyLjIzIDIuMzM5IDMuMzE5IDMuMzA1IDAgMCAuNTc2LjQ3MS41NzYuNzMzeiIgc3Ryb2tlPSIjNzE3MTcxIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWxsPSJub25lIi8+PC9zdmc+" class="image-filter">
+                <span class="filter-label">FILTER</span>
+              </a>
+            </div>
+            <div class="section-filter" style="height:48px;left:50%;">
+              <div class="sort-filter">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNyAxNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtNC44NzYgOS4yODR2LTguMjg0bTMuODc1IDMuNjUxbC0zLjg5My0zLjY1MS0zLjg1OCAzLjY1MW0xMC44MiAxLjM4MnY4LjI4NG0tMy44NzUtMy42NTFsMy44OTMgMy42NTEgMy44NTgtMy42NTEiIHN0cm9rZT0iIzcxNzE3MSIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==" class="image-filter">
+                <span> URUTKAN</span>
+              </div>
+              <select class="sort-option" value="{{sortVal::change}}">
+                <option value="rating">Lokasi</option>
+                <option value="fund">Terbiayai Terbanyak</option>
+                <option value="fund_less">Terbiayai Terkeci</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
       <paper-card image="/data/images/joko.jpg">
         <div class="card-content">
           <h3>Joko Widodo</h3>
           <p><iron-icon icon="location"></iron-icon>Serang</p>
           <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
-        </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
         </div>
       </paper-card>
       <paper-card image="/data/images/joko.jpg">
@@ -65,9 +181,12 @@
           <p><iron-icon icon="location"></iron-icon>Serang</p>
           <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
+      </paper-card>
+      <paper-card image="/data/images/joko.jpg">
+        <div class="card-content">
+          <h3>Joko Widodo</h3>
+          <p><iron-icon icon="location"></iron-icon>Serang</p>
+          <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
       </paper-card>
       <paper-card image="/data/images/joko.jpg">
@@ -76,9 +195,12 @@
           <p><iron-icon icon="location"></iron-icon>Serang</p>
           <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
+      </paper-card>
+      <paper-card image="/data/images/joko.jpg">
+        <div class="card-content">
+          <h3>Joko Widodo</h3>
+          <p><iron-icon icon="location"></iron-icon>Serang</p>
+          <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
       </paper-card>
       <paper-card image="/data/images/joko.jpg">
@@ -87,9 +209,12 @@
           <p><iron-icon icon="location"></iron-icon>Serang</p>
           <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
+      </paper-card>
+      <paper-card image="/data/images/joko.jpg">
+        <div class="card-content">
+          <h3>Joko Widodo</h3>
+          <p><iron-icon icon="location"></iron-icon>Serang</p>
+          <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
       </paper-card>
       <paper-card image="/data/images/joko.jpg">
@@ -98,9 +223,12 @@
           <p><iron-icon icon="location"></iron-icon>Serang</p>
           <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
+      </paper-card>
+      <paper-card image="/data/images/joko.jpg">
+        <div class="card-content">
+          <h3>Joko Widodo</h3>
+          <p><iron-icon icon="location"></iron-icon>Serang</p>
+          <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
       </paper-card>
       <paper-card image="/data/images/joko.jpg">
@@ -109,10 +237,6 @@
           <p><iron-icon icon="location"></iron-icon>Serang</p>
           <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
-        </div>
       </paper-card>
       <paper-card image="/data/images/joko.jpg">
         <div class="card-content">
@@ -120,64 +244,12 @@
           <p><iron-icon icon="location"></iron-icon>Serang</p>
           <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
         </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
-        </div>
       </paper-card>
       <paper-card image="/data/images/joko.jpg">
         <div class="card-content">
           <h3>Joko Widodo</h3>
           <p><iron-icon icon="location"></iron-icon>Serang</p>
           <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
-        </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
-        </div>
-      </paper-card>
-      <paper-card image="/data/images/joko.jpg">
-        <div class="card-content">
-          <h3>Joko Widodo</h3>
-          <p><iron-icon icon="location"></iron-icon>Serang</p>
-          <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
-        </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
-        </div>
-      </paper-card>
-      <paper-card image="/data/images/joko.jpg">
-        <div class="card-content">
-          <h3>Joko Widodo</h3>
-          <p><iron-icon icon="location"></iron-icon>Serang</p>
-          <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
-        </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
-        </div>
-      </paper-card>
-      <paper-card image="/data/images/joko.jpg">
-        <div class="card-content">
-          <h3>Joko Widodo</h3>
-          <p><iron-icon icon="location"></iron-icon>Serang</p>
-          <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
-        </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
-        </div>
-      </paper-card>
-      <paper-card image="/data/images/joko.jpg">
-        <div class="card-content">
-          <h3>Joko Widodo</h3>
-          <p><iron-icon icon="location"></iron-icon>Serang</p>
-          <p>Umur saya 9 tahun, saya ingin sekolah biar pinter</p>
-        </div>
-        <div class="card-actions">
-          <paper-button>Bantu</paper-button>
-          <paper-button>Bagikan</paper-button>
         </div>
       </paper-card>
     </section>
@@ -198,15 +270,41 @@
         visible: {
           type: Boolean,
           observer: '_visibleChanged'
-        }
+        },
 
+        classFilter: {
+          type: String,
+          value: 'filter-absolute'
+        },
+
+      },
+      
+      behaviors: [
+        Polymer.IronScrollTargetBehavior
+      ],
+
+      attached: function() {
+        this._scrollHandler();
+      },
+
+      _scrollHandler: function() {
+        if(this._scrollTop >= 193){
+          this.classFilter = "filter-fixed";
+        }
+        else{
+          this.classFilter = "filter-absolute";
+        }
       },
 
       _visibleChanged: function(visible) {
         if (visible) {
-          this.fire('change-section', { title: 'Student' });
+          this.fire('change-section', { title: 'student' });
         }
-      }
+      },
+      _openFilter: function(){
+      },
+      _openShort: function(){
+      },
 
     });
 
